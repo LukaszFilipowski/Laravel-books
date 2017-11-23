@@ -16,9 +16,12 @@ class Stats extends Model
         
         $books = Book::all();
         foreach ($books as $book) {
-            
+            similar_text(strtolower($name), strtolower($book->name), $percent);
+            $book->compatibility = $percent;
+            $book->favg = $book->reviews->where('sex', 'f')->avg('age');
+            $book->mavg = $book->reviews->where('sex', 'm')->avg('age');
         }
         
-        var_dump($conditions);
+        return $books;
     }
 }

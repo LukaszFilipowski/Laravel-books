@@ -9,8 +9,9 @@ class PageController extends Controller
 {
     public function index() 
     {
-        $result1 = Stats::show_statistics('ZieLoNa MiLa|age>30');
+        $stats1 = Stats::show_statistics('ZieLoNa MiLa|age>30');
+        $stats2 = Stats::show_statistics('ZiElonA Droga|age<30');
         
-        return view('index', compact('result1'));
+        return view('index', compact('stats1', 'stats2'));
     }
 }

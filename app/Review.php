@@ -12,6 +12,6 @@ class Review extends Model
     public function book()
     {
         
-        return $this->hasOne('App\Review');
+        return $this->hasOne('App\Book');
     }
 }
